@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
+import RNPickerSelect from 'react-native-picker-select';
 import { Picker, StyleSheet, Text, View } from 'react-native';
 import dataApi from './api/data';
 import Header from './components/common/Header';
-import RNPickerSelect from 'react-native-picker-select';
 
 
 type Props = {};
