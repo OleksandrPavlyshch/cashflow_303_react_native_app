@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-// import RNPickerSelect from 'react-native-picker-select';
 import { Picker, StyleSheet, Text, View } from 'react-native';
 import dataApi from './api/data';
-import Header from './components/common/Header';
+import { Header, NativeSelect } from './components/common';
 
 
 type Props = {};
@@ -56,22 +55,7 @@ export default class App extends Component < Props > {
 		return (
 			<View style={{ flex: 1, }}>
 				<Header headerText={'Cashfow 303'} />
-{/*				<RNPickerSelect 
-					items={this.state.items}
-					onValueChange={(value) => {
-              this.setState({
-                  favColor: value,
-              });
-          }}
-          onUpArrow={() => {
-                                  this.inputRefs.name.focus();
-                              }}
-                              onDownArrow={() => {
-                                  this.inputRefs.picker2.togglePicker();
-                              }}
-					value={this.state.favColor}
-
-				/>*/}
+					<NativeSelect placeholder={'Виберите персонажа'} onValueChange={console.log('sss')} />
 				<View>
 					<Picker 
 						
@@ -83,13 +67,6 @@ export default class App extends Component < Props > {
 						}
 					</Picker>
 				</View>
-	{/*			<Picker>
-					{
-						dreams.map((profession, i) => {
-							return <Picker.Item label={profession.title} value={profession.title} key={i} />;
-						})
-					}
-				</Picker>*/}
 			</View>
 		);
 	}
