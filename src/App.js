@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import RNPickerSelect from 'react-native-picker-select';
+// import RNPickerSelect from 'react-native-picker-select';
 import { Picker, StyleSheet, Text, View } from 'react-native';
 import dataApi from './api/data';
 import Header from './components/common/Header';
@@ -56,7 +56,7 @@ export default class App extends Component < Props > {
 		return (
 			<View style={{ flex: 1, }}>
 				<Header headerText={'Cashfow 303'} />
-				<RNPickerSelect 
+{/*				<RNPickerSelect 
 					items={this.state.items}
 					onValueChange={(value) => {
               this.setState({
@@ -71,7 +71,7 @@ export default class App extends Component < Props > {
                               }}
 					value={this.state.favColor}
 
-				/>
+				/>*/}
 				<View>
 					<Picker 
 						
