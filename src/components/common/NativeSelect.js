@@ -6,6 +6,7 @@ const NativeSelect = ({ placeholder }) => {
 	return ( 
 	<View style={styles.container}>
 		<RNPickerSelect 
+		style={{ ...pickerSelectStyles }}
 			placeholder={{
 				label: placeholder || 'Select a item...',
 				value: null,
@@ -34,13 +35,23 @@ const NativeSelect = ({ placeholder }) => {
 
 const styles = StyleSheet.create({
 	container: {
-		flex: 1,
 		backgroundColor: '#fff',
 		justifyContent: 'center',
+		paddingHorizontal: 2,
+	}
+});
+
+const pickerSelectStyles = StyleSheet.create({
+	inputIOS: {
+		fontSize: 16,
+		paddingTop: 13,
 		paddingHorizontal: 10,
+		paddingBottom: 12,
+		borderWidth: 1,
+		borderColor: 'gray',
 		borderRadius: 4,
-		borderWidth: 0.5,
-		borderColor: '#d6d7da',
+		backgroundColor: 'white',
+		color: 'black',
 	},
 });
 
