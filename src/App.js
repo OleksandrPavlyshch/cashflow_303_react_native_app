@@ -55,7 +55,12 @@ export default class App extends Component < Props > {
 		return (
 			<View style={{ flex: 1, }}>
 				<Header headerText={'Cashfow 303'} />
-					<NativeSelect placeholder={'Виберите персонажа'} onValueChange={console.log('sss')} />
+					<NativeSelect 
+						dataArray={professions} 
+						labelKey={'title'} 
+						placeholder={'Виберите профессию'} 
+						onValueChange={console.log('sss')} 
+					/>
 				<View>
 					<Picker 
 						

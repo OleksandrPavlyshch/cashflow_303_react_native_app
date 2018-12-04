@@ -2,7 +2,17 @@ import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import RNPickerSelect from 'react-native-picker-select';
 
-const NativeSelect = ({ placeholder }) => {
+const NativeSelect = ({ dataArray, labelKey, placeholder }) => {
+
+	const items = dataArray.reduce((acc, item, index) => {
+		acc.push({
+			label: item[labelKey] || `Item ${index}`,
+			value: index
+		});
+		return acc;
+	}, []);
+
+
 	return ( 
 	<View style={styles.container}>
 		<RNPickerSelect 
@@ -11,20 +21,7 @@ const NativeSelect = ({ placeholder }) => {
 				label: placeholder || 'Select a item...',
 				value: null,
 			}}
-			items={[
-				{
-					label: 'Red',
-					value: 'red',
-				},
-				{
-					label: 'Orange',
-					value: 'orange',
-				},
-				{
-					label: 'Blue',
-					value: 'blue',
-				},
-			]}
+			items={items}
 			onValueChange={
 				() => console.log('log')
 			}
