@@ -41,12 +41,12 @@ const styles = StyleSheet.create({
 const pickerSelectStyles = StyleSheet.create({
 	inputIOS: {
 		fontSize: 16,
-		paddingTop: 13,
+		paddingTop: 14,
 		paddingHorizontal: 10,
-		paddingBottom: 12,
+		paddingBottom: 14,
 		borderWidth: 1,
 		borderColor: 'gray',
-		borderRadius: 4,
+		borderRadius: 5,
 		backgroundColor: 'white',
 		color: 'black',
 	},

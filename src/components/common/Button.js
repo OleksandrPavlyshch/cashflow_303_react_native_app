@@ -6,9 +6,12 @@ const Button = ({ onPress, children }) => {
 
 	return (
 		<TouchableOpacity onPress={onPress} style={buttonStyle}>
-			<Text style={textStyle}>
-				{children}
-			</Text>
+			{React.isValidElement(children)
+				? children
+				: (<Text style={textStyle}>
+					{children}
+				</Text>)
+			}
 		</TouchableOpacity>
 	);
 };
@@ -16,21 +19,23 @@ const Button = ({ onPress, children }) => {
 const styles = {
 	textStyle: {
 		alignSelf: 'center',
-		color: '#007aff',
+		color: '#ffffff',
 		fontSize: 16,
 		fontWeight: '600',
 		paddingTop: 13,
 		paddingBottom: 12
 	},
 	buttonStyle: {
+		overflow: 'hidden',
 		// flex: 1,
+		minHeight: 50,
+		justifyContent: 'center',
 		alignSelf: 'stretch',
-		backgroundColor: '#fff',
+		alignItems: 'center',
+		backgroundColor: '#007aff',
 		borderRadius: 5,
-		borderWidth: 1,
-		borderColor: '#007aff',
-		marginLeft: 10,
-		marginRight: 10
+		marginLeft: 5,
+		marginRight: 5
 	}
 };
 

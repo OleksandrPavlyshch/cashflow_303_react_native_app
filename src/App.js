@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, Image } from 'react-native';
 import dataApi from './api/data';
 import { Button, Header, NativeSelect } from './components/common';
 
@@ -27,39 +27,56 @@ export default class App extends Component < Props > {
 		const logState = () => {
 			console.log(this.state);
 		};
-		const getRandomArrayIndex = (array) => {
-			return Math.floor(Math.random() * array.length - 1);
-		};
+
+		const getRandomArrayIndex = (array) => Math.floor(Math.random() * (array.length - 1));
+
 
 		return (
 			<View style={{ flex: 1, }}>
 				<Header headerText={'Cashfow 303'} />
-				<View style={{ marginBottom: 20, }}>
-					<NativeSelect 
-						dataArray={professions} 
-						labelKey={'title'} 
-						value={this.state.professionIndex}
-						placeholder={'Выберите профессию'} 
-						onChange={(value) => this.setState({ professionIndex: value }, logState)}
-					/>
 
-					<Button 
-						onPress={() => this.setState({ professionIndex: getRandomArrayIndex(professions) })}
-					>
-						Случайный выбор профессии
-					</Button>
+				<View style={{ paddingTop: 20, marginBottom: 20, flexDirection: 'row', }}>
+					<View style={{ flex: 1, }}>
+						<NativeSelect 
+							dataArray={professions} 
+							labelKey={'title'} 
+							value={this.state.professionIndex}
+							placeholder={'Выберите профессию'} 
+							onChange={(value) => this.setState({ professionIndex: value })}
+						/>
+					</View>
+					<View style={{ maxWidth: 100, }}>
+						<Button 
+							onPress={() => this.setState({ professionIndex: getRandomArrayIndex(professions) })}
+						>
+							<Image 
+								style={{ width: 50, height: 50, }}
+								source={require('./img/dice.png')} 
+							/>
+						</Button>
+					</View>
 				</View>
-				<View>
-					<NativeSelect 
-						dataArray={dreams} 
-						labelKey={'title'} 
-						value={this.state.dreamIndex}
-						placeholder={'Виберите мечту'}
-						onChange={(value) => this.setState({ dreamIndex: value }, logState)} 
-					/>
-					<Button onPress={() => this.setState({ dreamIndex: getRandomArrayIndex(dreams) })}>
-						Случайный выбор мечты
-					</Button>
+
+				<View style={{ flexDirection: 'row', }}>
+					<View style={{ flex: 1, }}>
+						<NativeSelect 
+							dataArray={dreams} 
+							labelKey={'title'} 
+							value={this.state.dreamIndex}
+							placeholder={'Виберите мечту'}
+							onChange={(value) => this.setState({ dreamIndex: value })} 
+						/>
+					</View>
+					<View style={{ maxWidth: 100, }}>
+						<Button 
+							onPress={() => this.setState({ dreamIndex: getRandomArrayIndex(dreams) })}
+						>
+							<Image 
+								style={{ width: 50, height: 50, }}
+								source={require('./img/dice.png')} 
+							/>
+						</Button>
+					</View>
 				</View>
 			</View>
 		);
