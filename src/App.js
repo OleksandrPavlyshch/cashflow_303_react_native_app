@@ -34,51 +34,66 @@ export default class App extends Component < Props > {
 		return (
 			<View style={{ flex: 1, }}>
 				<Header headerText={'Cashfow 303'} />
-
-				<View style={{ paddingTop: 20, marginBottom: 20, flexDirection: 'row', }}>
-					<View style={{ flex: 1, }}>
+				<View style={{ 
+					paddingTop: 20,
+					paddingHorizontal: 10,
+				}}>
+					{this.renderRow(
 						<NativeSelect 
 							dataArray={professions} 
 							labelKey={'title'} 
 							value={this.state.professionIndex}
 							placeholder={'Выберите профессию'} 
 							onChange={(value) => this.setState({ professionIndex: value })}
-						/>
-					</View>
-					<View style={{ maxWidth: 100, }}>
+						/>,
 						<Button 
-							onPress={() => this.setState({ professionIndex: getRandomArrayIndex(professions) })}
+							onPress={() => this.setState(
+								{ professionIndex: getRandomArrayIndex(professions) }
+							)}
 						>
 							<Image 
 								style={{ width: 50, height: 50, }}
 								source={require('./img/dice.png')} 
 							/>
 						</Button>
-					</View>
+					)}
 				</View>
 
-				<View style={{ flexDirection: 'row', }}>
-					<View style={{ flex: 1, }}>
+				<View style={{ paddingVertical: 20, paddingHorizontal: 10, }}>
+					{this.renderRow(
 						<NativeSelect 
 							dataArray={dreams} 
-							labelKey={'title'} 
-							value={this.state.dreamIndex}
-							placeholder={'Виберите мечту'}
-							onChange={(value) => this.setState({ dreamIndex: value })} 
-						/>
-					</View>
-					<View style={{ maxWidth: 100, }}>
+								labelKey={'title'} 
+								value={this.state.dreamIndex}
+								placeholder={'Виберите мечту'}
+								onChange={(value) => this.setState({ dreamIndex: value })}
+						/>,
 						<Button 
-							onPress={() => this.setState({ dreamIndex: getRandomArrayIndex(dreams) })}
+							onPress={() => this.setState(
+								{ dreamIndex: getRandomArrayIndex(dreams) }
+							)}
 						>
 							<Image 
 								style={{ width: 50, height: 50, }}
 								source={require('./img/dice.png')} 
 							/>
 						</Button>
-					</View>
+					)}
 				</View>
 			</View>
+		);
+	}
+
+	renderRow(elem1, elem2) {
+		return (
+			<View style={{ flexDirection: 'row', }}>
+					<View style={{ flex: 1, }}>
+						{elem1}
+					</View>
+					<View style={{ maxWidth: 100, }}>
+						{elem2}
+					</View>
+				</View>
 		);
 	}
 }
