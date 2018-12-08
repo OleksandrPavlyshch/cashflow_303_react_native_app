@@ -28,7 +28,7 @@ export default class App extends Component < Props > {
 			console.log(this.state);
 		};
 		const getRandomArrayIndex = (array) => {
-			return Math.floor(Math.random() * array.length);
+			return Math.floor(Math.random() * array.length - 1);
 		};
 
 		return (
